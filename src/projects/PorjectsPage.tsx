@@ -60,10 +60,20 @@ export default function PorjectsPage() {
 
   const saveProject = (project: Project) => {
     // console.log('Saving project: ', project);
-    let updatedProjects = projects.map((p: Project) => {
-      return p.id === project.id ? project : p;
-    });
-    setProjects(updatedProjects);
+
+    projectAPI
+      .put(project)
+      .then(updatedProject => {
+        let updatedProjects = projects.map((p: Project) => {
+          return p.id === project.id ? project : p;
+        });
+        setProjects(updatedProjects);
+      })
+      .catch(e => {
+        if (e instanceof Error) {
+          setError(e.message);
+        }
+      });
   };
   return (
     <Fragment>
