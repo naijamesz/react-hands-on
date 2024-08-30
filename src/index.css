@@ -1,4 +1,8 @@
 @import '../node_modules/mini.css/dist/mini-default.min.css';
+.card,
 form {
-  min-wid: 18.75rem;
+  min-width: 300px;
+  max-height: 450px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.8);
 }
